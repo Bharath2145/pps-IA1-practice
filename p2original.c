@@ -1,4 +1,4 @@
- #include<stdio.h>
+#include<stdio.h>
 int input()
 {
   int a;
@@ -9,28 +9,18 @@ int input()
 
 int cmp(int a, int b, int c)
 {
-  if(a>b)
-  {
-    if(a>c)
+  if(a>b&&a>c)
     {
       return a;
     }
-    else
-    {
-      return c;
-    }
-  }
-  else
-  {
-    if(b>c)
-    {
+    else if(b>c)
+   {
       return b;
     }
     else
     {
       return c;
     }
-  }
 }
 void output(int largest)
 {

@@ -1,4 +1,4 @@
- gcc -g p2original.c
+  gcc -g p2original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,27 +16,55 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x823: file p2original.c, line 42.
+Breakpoint 1 at 0x81e: file p2original.c, line 32.
 (gdb) r
 Starting program: /home/runner/pps-IA1-practice/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:42
-42    a = input();
+Breakpoint 1, main () at p2original.c:32
+32    a = input();
 (gdb) n
 enter the number:
 1
-43    b = input();
+33    b = input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter the number:\n");
 (gdb) n
 enter the number:
-2
-44    c = input();
+6     scanf("%d", &a);
+(gdb) n
+6
+7     return a;
+(gdb) p a
+$1 = 6
+(gdb) n
+8   }
+(gdb) n
+main () at p2original.c:34
+34    c = input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter the number:\n");
 (gdb) n
 enter the number:
-3
-45    largest = cmp(a, b, c);
+6     scanf("%d", &a);
 (gdb) n
-46    output(largest);
+5
+7     return a;
+(gdb) p a
+$2 = 5
 (gdb) n
-the largest is: 3
-47  }(gdb) n
+8   }
+(gdb) n
+main () at p2original.c:35
+35    largest = cmp(a, b, c);
+(gdb) n
+36    output(largest);
+(gdb) n
+the largest is: 6
+37  }(gdb) n
