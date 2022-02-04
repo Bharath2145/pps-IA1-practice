@@ -28,4 +28,5 @@ int main()
   n=input();
   sres = squareroot(n);
   output(n, sres);
+  return 0;
 }
