@@ -1,34 +1,35 @@
- #include<stdio.h>
-int input_size_array(){
-  int n;
-  printf("enter the number of input:\n");
-  scanf("%d",&n);
-  return n;
+#include <stdio.h>
+struct _complex
+{
+ float real,imaginary;
+};
+typedef struct _complex Complex;
+Complex input()
+{
+ Complex Complex;
+ printf("Enter the complex number\n");
+ scanf("%f%f", &Complex.real,&Complex.imaginary);
+ return Complex;
 }
-void input_array(int n,int a[n]){
-  for(int i=0;i<n;i++){
-    printf("enter a number\n");
-    scanf("%d",&a[i]);
-  }
+Complex add(Complex a, Complex b)
+{
+ Complex sum;
+ sum.real = a.real + b.real;
+ sum.imaginary = a.imaginary + b.imaginary;
+ return sum;
 }
-int sum_n_array(int n,int a[n]){
-  int sum=0;
-  for(int i=0;i<n;i++){
-    sum+=a[i];
-  }
-return sum;
+void output(Complex a, Complex b, Complex c)
+{
+ printf("%.2f + %.2fi + %.2f + %.2fi is %.2f + %.2fi\n",
+ a.real,a.imaginary,b.real,b.imaginary,c.real,c.imaginary);
 }
-void output(int n,int a[n],int sum){
-  for(int i=0;i<n-1;i++){
-    printf("%d+",a[i]);
-  }
-  printf("%d is %d\n",a[n-1],sum);
-}
-int main(){
-  int n=input_size_array();
-  int a[n];
-  input_array(n,a);
-  int sum = sum_n_array(n,a);
-  output(n,a,sum);
-  return 0;
-}
+
+int main()
+{
+ Complex a,b,c;
+ a=input();
+ b=input();
+ c=add(a,b);
+ output(a,b,c);
+ return 0;
+ }
